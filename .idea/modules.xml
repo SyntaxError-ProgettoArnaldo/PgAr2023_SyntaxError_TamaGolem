@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PgAr2023_SyntaxError_TamaGolem.iml" filepath="$PROJECT_DIR$/.idea/PgAr2023_SyntaxError_TamaGolem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PgAr2023_SyntaxError_TamaGolem.iml" filepath="$PROJECT_DIR$/PgAr2023_SyntaxError_TamaGolem.iml" />
     </modules>
   </component>
 </project>
