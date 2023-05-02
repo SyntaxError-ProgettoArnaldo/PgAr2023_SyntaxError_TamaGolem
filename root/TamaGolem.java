@@ -14,7 +14,9 @@ public class TamaGolem
         this.vita = vita;
     }
 
-    public TamaGolem() {}
+    public TamaGolem() {
+        pietre = new ArrayList<>();
+    }
 
     public ArrayList<Elemento> getPietre() {
         return pietre;
@@ -39,6 +41,8 @@ public class TamaGolem
     public void setVita(int vita) {
         this.vita = vita;
     }
+
+
 
     @Override
     public String
