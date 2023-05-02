@@ -15,9 +15,9 @@ public class Costanti
 
     public static void inizializzaScortaComune()
     {
-        SCORTA_COMUNE.put("pietra 1",3);
-        SCORTA_COMUNE.put("pietra 2",3);
-        SCORTA_COMUNE.put("pietra 3",3);
+        SCORTA_COMUNE.put("pietra1",NUMERO_SCORTA_COMUNE/NUMERO_PIETRE);
+        SCORTA_COMUNE.put("pietra2",NUMERO_SCORTA_COMUNE/NUMERO_PIETRE);
+        SCORTA_COMUNE.put("pietra3",NUMERO_SCORTA_COMUNE/NUMERO_PIETRE);
     }
 
 

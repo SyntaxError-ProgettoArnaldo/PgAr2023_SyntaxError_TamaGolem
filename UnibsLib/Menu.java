@@ -1,7 +1,6 @@
 package UnibsLib;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 /**
  * The <strong>Menu</strong> class creates a menu with multiple entry supposing
@@ -71,15 +70,14 @@ public class Menu implements Serializable {
   public Menu(String title, String[] entries) {
     this.title = title;
     this.entries = entries;
-    this.useExitEntry = true;
+    this.useExitEntry = false;
     this.frameLength = calculateFrameLength(title, entries);
     this.centredTitle = true;
-    this.useVerticalFrame = true;
+    this.useVerticalFrame = false;
+
   }
 
-
-
-    /**
+  /**
    * Calculates the frame length by measuring the length of the title and of all
    * the entries of the menu accounting for their number and the ". " string
    * before the actual entry.
@@ -122,7 +120,7 @@ public class Menu implements Serializable {
    */
   public int choose() {
     printMenu();
-    return InputData.readInteger("Digita un numero dell operazione desiderata--> ");
+    return InputData.readIntegerBetween("Digita un numero dell operazione desiderata--> ",1,entries.length);
   }
 
   /*

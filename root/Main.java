@@ -9,9 +9,10 @@ public class Main
 
     public static void main(String[] args)
     {
-       /* InterfacciaUtente.creaSquadra();
+        InterfacciaUtente.creaSquadra();
 
-        Battaglia.inizio();*/
+        Battaglia.inizio();
+
         Equilibrio.creaEquilibrio();
     }
 }

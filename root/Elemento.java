@@ -1,17 +1,10 @@
 package root;
 
-import java.util.ArrayList;
-
-public enum Elemento
-{
-    PIETRA("Pietra1", new int[]{1, 2});
+public class Elemento {
     private String nome;
-    private int[] equilibriSingoli;
 
-    Elemento(String nome, int[] equilibriSingoli)
-    {
+    public Elemento(String nome) {
         this.nome = nome;
-        this.equilibriSingoli = equilibriSingoli;
     }
 
     public String getNome() {
@@ -22,11 +15,10 @@ public enum Elemento
         this.nome = nome;
     }
 
-    public int[] getEquilibriSingoli() {
-        return equilibriSingoli;
-    }
-
-    public void setEquilibriSingoli(int[] equilibriSingoli) {
-        this.equilibriSingoli = equilibriSingoli;
+    @Override
+    public String toString() {
+        return "Elemento{" +
+                "nome='" + nome + '\'' +
+                '}';
     }
 }

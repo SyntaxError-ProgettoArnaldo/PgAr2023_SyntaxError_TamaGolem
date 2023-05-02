@@ -21,7 +21,6 @@ public class Equilibrio
                     somma+=mat[i][j];
                     mat[j][i]=-mat[i][j];
                 }
-                System.out.println(conta);
             } while (somma!=0 && conta<200);
             if(conta>199)   {
                 i=-1;
