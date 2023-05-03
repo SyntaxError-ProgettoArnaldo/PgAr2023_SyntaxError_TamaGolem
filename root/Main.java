@@ -7,12 +7,10 @@ public class Main
 
 
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InterruptedException {
         InterfacciaUtente.creaSquadra();  //creazione della squadra
 
         Battaglia.inizio();
 
-        Equilibrio.creaEquilibrio();
     }
 }

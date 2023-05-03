@@ -96,15 +96,19 @@ public interface InterfacciaUtente
         ArrayList<Elemento> listaPietre2 = new ArrayList<>();
 
         //riempi listaPietre 2
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3 ; i++) {
+            if (gSuccessivo.getTamaGolem().element().getPietre().isEmpty()){
+                break;
+            }
             listaPietre2.add(gSuccessivo.getTamaGolem().element().getPietre().element());
             gSuccessivo.getTamaGolem().element().getPietre().add(gSuccessivo.getTamaGolem().element().getPietre().element());
             gSuccessivo.getTamaGolem().element().getPietre().remove();
         }
 
+        HashMap<String,Integer> copiaScortaComune = new HashMap<>();
         do
         {
-            HashMap<String,Integer> copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
+            copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
             listaPietre1 = new ArrayList<>();
             System.out.println("\nOra tocca a te "+gCorrente.getNome()+", devi scegliere le pietre \n");
             for (int j = 0; j < Costanti.NUMERO_PIETRE; j++)
@@ -124,6 +128,7 @@ public interface InterfacciaUtente
 
 
         }while (confrontaSetPietre(listaPietre1,listaPietre2));
+        Costanti.SCORTA_COMUNE = copiaScortaComune;
 
         for (Elemento el:listaPietre1)
         {
@@ -143,8 +148,7 @@ public interface InterfacciaUtente
         }
 
 
-        System.out.println(listaPietre1);
-        System.out.println(listaPietre2);
+
         for (int i = 0; i < listaPietre1.size(); i++) {
             if(!listaPietre1.get(i).getNome().equalsIgnoreCase(listaPietre2.get(i).getNome()))
             {

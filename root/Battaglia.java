@@ -2,13 +2,16 @@ package root;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.time.Clock;
+import java.util.concurrent.TimeUnit;
+
 import static root.Main.*;
 
 public class Battaglia {
 
     private static ArrayList<Giocatore> listaGiocatori = new ArrayList<>();
-    public static void inizio()
-    {
+    public static void inizio() throws InterruptedException {
         Costanti.inizializzaScortaComune();
         listaGiocatori.add(giocatore1);
         listaGiocatori.add(giocatore2);
@@ -17,49 +20,65 @@ public class Battaglia {
         scontro();
     }
 
-    public static void scontro()
-    {
+    public static void scontro() throws InterruptedException {
+        int[][] equilibrio = Equilibrio.creaEquilibrio();
+        HashMap<String, Integer> mappa = new HashMap<>();
+        for (int k = 0; k < Costanti.SCORTA_COMUNE.size(); k++) {
+            mappa.put(String.valueOf(Costanti.SCORTA_COMUNE.keySet().toArray()[k]),k);
+        }
+        System.out.println(mappa);
+
+
         Giocatore giocatoreA = listaGiocatori.get(0);
         Giocatore giocatoreB = listaGiocatori.get(1);
 
-
         System.out.println("è il turno di: "+giocatoreA.getNome());
         InterfacciaUtente.scegliPietreSingolo(giocatoreA,giocatoreB);
 
-        scambiaTurno(giocatoreA,giocatoreB);
         System.out.println("è il turno di: "+giocatoreA.getNome());
-        InterfacciaUtente.scegliPietreSingolo(giocatoreA,giocatoreB);
-        scambiaTurno(giocatoreA,giocatoreB);
+        InterfacciaUtente.scegliPietreSingolo(giocatoreB,giocatoreA);
+
 
         do {
+            System.out.println("vita 1--> "+giocatoreA.getTamaGolem().element().getVita());
+            System.out.println("vita 2--> "+giocatoreB.getTamaGolem().element().getVita());
+            Elemento elementoGA = giocatoreA.getTamaGolem().element().getPietre().element();
+            Elemento elementoGB = giocatoreB.getTamaGolem().element().getPietre().element();
 
-
-
-            do
+            int potenza = equilibrio[mappa.get(elementoGA.getNome())][mappa.get(elementoGB.getNome())];
+            System.out.println("Potenza-->"+potenza);
+            if(potenza<0)
             {
+                //secondo fa male al primo
+                giocatoreA.getTamaGolem().element().togliVita(Math.abs(potenza));
+                System.out.println(giocatoreB.getTamaGolem().element().getNome()+" fa "+ potenza +" di danno a "+giocatoreA.getTamaGolem().element().getNome());
+            }
+            else if(potenza>0)
+            {
+                //primo fa male al secondo
+                giocatoreB.getTamaGolem().element().togliVita(Math.abs(potenza));
+                System.out.println(giocatoreA.getTamaGolem().element().getNome()+" fa "+ potenza +" di danno a "+giocatoreB.getTamaGolem().element().getNome());
 
+            }
+            else
+            {
+                //nessun danno
+                System.out.println("NESSUN DANNO");
+            }
 
+            giocatoreA.getTamaGolem().element().getPietre().add(giocatoreA.getTamaGolem().element().getPietre().element());
+            giocatoreB.getTamaGolem().element().getPietre().add(giocatoreB.getTamaGolem().element().getPietre().element());
+            giocatoreA.getTamaGolem().element().getPietre().remove();
+            giocatoreB.getTamaGolem().element().getPietre().remove();
+            TimeUnit.MILLISECONDS.sleep(1000);
 
-
-
-            }while (controlloNuovoEvocazione(giocatoreA,giocatoreB));
-            //togliere tama da lista
-        }while(continuarePartita(giocatoreA,giocatoreB));
-
-
-
-
-
-
-
-
-
+        }while(controlloVita(giocatoreA,giocatoreB));
 
 
 
     }
 
-    private static boolean controlloNuovoEvocazione(Giocatore gCorrente, Giocatore gSuccessivo)
+    private static boolean controlloVita(Giocatore gCorrente, Giocatore gSuccessivo)
     {
         if(gCorrente.getTamaGolem().element().getVita()<=0 || gSuccessivo.getTamaGolem().element().getVita()<=0)
         {
@@ -70,7 +89,7 @@ public class Battaglia {
 
     public static boolean continuarePartita(Giocatore gCorrente, Giocatore gSuccessivo)
     {
-
+        return true;
     }
 
 

@@ -2,7 +2,7 @@ package root;
 import java.lang.Math;
 public class Equilibrio
 {
-    public static void creaEquilibrio()   {
+    public static int [][] creaEquilibrio()   {
         int [][] mat= new int[Costanti.NUMERO_ELEMENTI][Costanti.NUMERO_ELEMENTI];
         int somma;
 
@@ -27,11 +27,14 @@ public class Equilibrio
             }
         }
 
+
         for (int i = 0; i < Costanti.NUMERO_ELEMENTI; i++) {
             for (int j = 0; j < Costanti.NUMERO_ELEMENTI; j++) {
                 System.out.print(mat[i][j]+" ");
             }
             System.out.println("\n");
         }
+        return mat;
     }
+
 }

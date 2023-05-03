@@ -2,11 +2,9 @@ package root;
 
 public class Elemento {
     private String nome;
-    private int rigaMat;
 
-    public Elemento(String nome, int rigaMat) {
+    public Elemento(String nome) {
         this.nome = nome;
-        this.rigaMat = rigaMat;
     }
 
     public Elemento() {
@@ -20,7 +18,6 @@ public class Elemento {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
 
     @Override
     public String toString() {

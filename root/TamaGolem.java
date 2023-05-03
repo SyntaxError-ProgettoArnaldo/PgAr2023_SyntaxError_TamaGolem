@@ -44,6 +44,15 @@ public class TamaGolem
         this.vita = vita;
     }
 
+    /**
+     *
+     * @param q quantita da togliere
+     */
+    public void togliVita(int q)
+    {
+        this.vita = this.vita-q;
+    }
+
 
 
     @Override
