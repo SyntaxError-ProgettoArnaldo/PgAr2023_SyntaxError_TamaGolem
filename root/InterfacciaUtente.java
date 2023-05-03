@@ -1,7 +1,10 @@
 package root;
 
+import UnibsLib.AnsiColors;
 import UnibsLib.InputData;
 import UnibsLib.Menu;
+import UnibsLib.PrettyStrings;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import static root.Main.*;
@@ -13,14 +16,12 @@ public interface InterfacciaUtente
     {
         System.out.println(Costanti.BENVENUTO);
         //primo giocatore
-        giocatore1.setNome(InputData.readNonEmptyString("Inserisci giocatore 1:\n"));
+        giocatore1.setNome(InputData.readNonEmptyString(Costanti.COLORE_GIOCATORE_A+Costanti.MESS_INSERISCI_GIOCATORE+AnsiColors.RESET));
         scegliTamagolem(giocatore1);
         //secondo giocatore
-        giocatore2.setNome(InputData.readNonEmptyString("Inserisci giocatore 2:\n"));
+        giocatore2.setNome(InputData.readNonEmptyString(Costanti.COLORE_GIOCATORE_B+Costanti.MESS_INSERISCI_GIOCATORE+AnsiColors.RESET));
         scegliTamagolem(giocatore2);
 
-        System.out.println(giocatore1);
-        System.out.println(giocatore2);
     }
 
     static void scegliTamagolem(Giocatore giocatore)
@@ -30,7 +31,7 @@ public interface InterfacciaUtente
         for (int i = 0; i < Costanti.NUMERO_TAMAGOLEM; i++)
         {
             TamaGolem t = new TamaGolem();
-            t.setNome(InputData.readNonEmptyString("Inserisci il nome del TamaGolem numero" + (i+1) +":\n"));
+            t.setNome(InputData.readNonEmptyString(giocatore.getColore()+Costanti.MESS_INSERISCI_TAMAGOLEM + (i+1) +"--> "+AnsiColors.RESET));
             listaTamaGolem.add(t);
         }
 

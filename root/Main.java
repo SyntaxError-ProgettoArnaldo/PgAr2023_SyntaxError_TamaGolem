@@ -2,8 +2,8 @@ package root;
 
 public class Main
 {
-    public static final Giocatore giocatore1 = new Giocatore();
-    public static final Giocatore giocatore2 = new Giocatore();
+    public static final Giocatore giocatore1 = new Giocatore(Costanti.COLORE_GIOCATORE_A);
+    public static final Giocatore giocatore2 = new Giocatore(Costanti.COLORE_GIOCATORE_B);
 
 
 

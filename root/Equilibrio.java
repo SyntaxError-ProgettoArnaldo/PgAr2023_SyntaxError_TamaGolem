@@ -1,5 +1,5 @@
 package root;
-
+import java.lang.Math;
 public class Equilibrio
 {
     public static void creaEquilibrio()   {
