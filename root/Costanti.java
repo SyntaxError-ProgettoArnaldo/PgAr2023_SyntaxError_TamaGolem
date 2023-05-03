@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public class Costanti
 {
+    public static final String BENVENUTO = "\nBenvenuto nel mondo dei Tamagolem!\n";
     public static HashMap<String, Integer> SCORTA_COMUNE = new HashMap<>();
     public static final int NUMERO_ELEMENTI = 5;
     public static final int NUMERO_PIETRE = 3;
