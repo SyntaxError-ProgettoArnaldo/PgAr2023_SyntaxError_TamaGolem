@@ -1,28 +1,30 @@
 package root;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 
 public class TamaGolem
 {
-    private ArrayList<Elemento> pietre;
+    private Deque<Elemento> pietre = new ArrayDeque<>();
     private String nome;
     private int vita = Costanti.VITA_MASSIMA;
 
-    public TamaGolem(ArrayList<Elemento> pietre, String nome, int vita) {
+    public TamaGolem(Deque<Elemento> pietre, String nome, int vita) {
         this.pietre = pietre;
         this.nome = nome;
         this.vita = vita;
     }
 
     public TamaGolem() {
-        pietre = new ArrayList<>();
+        pietre = new ArrayDeque<>();
     }
 
-    public ArrayList<Elemento> getPietre() {
+    public Deque<Elemento> getPietre() {
         return pietre;
     }
 
-    public void setPietre(ArrayList<Elemento> pietre) {
+    public void setPietre(Deque<Elemento> pietre) {
         this.pietre = pietre;
     }
 

@@ -5,14 +5,15 @@ import UnibsLib.InputData;
 import UnibsLib.Menu;
 import UnibsLib.PrettyStrings;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashMap;
 import static root.Main.*;
 
 public interface InterfacciaUtente
 {
-
-     static void creaSquadra()
+    static void creaSquadra()
     {
         System.out.println(Costanti.BENVENUTO);
         //primo giocatore
@@ -26,7 +27,7 @@ public interface InterfacciaUtente
 
     static void scegliTamagolem(Giocatore giocatore)
     {
-        ArrayList<TamaGolem> listaTamaGolem = new ArrayList<>();
+        Deque<TamaGolem> listaTamaGolem = new ArrayDeque<>();
 
         for (int i = 0; i < Costanti.NUMERO_TAMAGOLEM; i++)
         {
@@ -41,15 +42,13 @@ public interface InterfacciaUtente
 
     static void scegliPietre(ArrayList<Giocatore> listaGiocatori)
     {
-        ArrayList<Elemento> listaPietre1;
+        ArrayList<Elemento>listaPietre1;
         ArrayList<Elemento> listaPietre2;
         do
         {
             HashMap<String,Integer> copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
             listaPietre1 = new ArrayList<>();
             listaPietre2 = new ArrayList<>();
-            listaPietre1.clear();
-            listaPietre2.clear();
 
             for (int i = 0; i < listaGiocatori.size(); i++)
             {
@@ -78,14 +77,71 @@ public interface InterfacciaUtente
 
         }while (confrontaSetPietre(listaPietre1,listaPietre2));
 
-        listaGiocatori.get(0).getTamaGolem().get(0).setPietre(listaPietre1);
-        listaGiocatori.get(1).getTamaGolem().get(0).setPietre(listaPietre1);
+        for (Elemento el:listaPietre1)
+        {
+            listaGiocatori.get(0).getTamaGolem().element().getPietre().add(el);
+        }
+        for (Elemento el:listaPietre2)
+        {
+            listaGiocatori.get(1).getTamaGolem().element().getPietre().add(el);
+        }
+
+    }
+
+
+    static void scegliPietreSingolo(Giocatore gCorrente,Giocatore gSuccessivo)
+    {
+
+        ArrayList<Elemento> listaPietre1;
+        ArrayList<Elemento> listaPietre2 = new ArrayList<>();
+
+        //riempi listaPietre 2
+        for (int i = 0; i < 3; i++) {
+            listaPietre2.add(gSuccessivo.getTamaGolem().element().getPietre().element());
+            gSuccessivo.getTamaGolem().element().getPietre().add(gSuccessivo.getTamaGolem().element().getPietre().element());
+            gSuccessivo.getTamaGolem().element().getPietre().remove();
+        }
+
+        do
+        {
+            HashMap<String,Integer> copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
+            listaPietre1 = new ArrayList<>();
+            System.out.println("\nOra tocca a te "+gCorrente.getNome()+", devi scegliere le pietre \n");
+            for (int j = 0; j < Costanti.NUMERO_PIETRE; j++)
+            {
+                Elemento pietra = new Elemento();
+                String[] entries = new String[copiaScortaComune.size()];
+                for (int k = 0; k < copiaScortaComune.size(); k++) {
+                    entries[k] = copiaScortaComune.keySet().toArray()[k] + " ( " + copiaScortaComune.get(copiaScortaComune.keySet().toArray()[k]).toString() + " )";
+                }
+                Menu menuPietreRimaste = new Menu("Pietre disponibili", entries);
+                int scelta = menuPietreRimaste.choose() - 1;
+                pietra.setNome(entries[scelta].split(" ")[0]);
+                rimuoviPietra(entries[scelta].split(" ")[0],copiaScortaComune);
+                listaPietre1.add(pietra);
+            }
+
+
+
+        }while (confrontaSetPietre(listaPietre1,listaPietre2));
+
+        for (Elemento el:listaPietre1)
+        {
+            gCorrente.getTamaGolem().element().getPietre().add(el);
+        }
 
 
     }
 
+
+
     static boolean confrontaSetPietre(ArrayList<Elemento> listaPietre1, ArrayList<Elemento> listaPietre2)
     {
+        if(listaPietre2.isEmpty())
+        {
+            return false;
+        }
+
 
         System.out.println(listaPietre1);
         System.out.println(listaPietre2);
@@ -98,7 +154,6 @@ public interface InterfacciaUtente
         System.out.println("\nPIETRE UGUALI: REINSERIRE\n");
         return true;
     }
-
 
 
 

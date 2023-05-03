@@ -4,19 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="ora funziona!&#10;sistemato scegli pietre, funziona ma è da testare bene, anche nel caso che si mettano le stesse pietre">
+    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Battaglia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Battaglia.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Costanti.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Costanti.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Elemento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Elemento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/ElementoEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Equilibrio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Equilibrio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Giocatore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Giocatore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/InterfacciaUtente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/InterfacciaUtente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/TamaGolem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/TamaGolem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Battaglia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Costanti.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Costanti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Elemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/ElementoEnum.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Equilibrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Equilibrio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Giocatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Giocatore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/InterfacciaUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/InterfacciaUtente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/TamaGolem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,8 @@
       <workItem from="1682858523826" duration="2692000" />
       <workItem from="1682877675916" duration="29000" />
       <workItem from="1683104594006" duration="9371000" />
-      <workItem from="1683128607096" duration="1201000" />
+      <workItem from="1683128607096" duration="1242000" />
+      <workItem from="1683137499493" duration="6846000" />
     </task>
     <task id="LOCAL-00001" summary="da controllare hasmap e creazione menu scegli Pietre">
       <created>1682861115398</created>
@@ -103,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683113399502</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori">
+      <created>1683129845801</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683129845801</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,7 +138,8 @@
     <MESSAGE value="da controllare hasmap e creazione menu scegli Pietre" />
     <MESSAGE value="non funziona un cazzo" />
     <MESSAGE value="ora funziona!&#10;sistemato scegli pietre, funziona ma è da testare bene, anche nel caso che si mettano le stesse pietre" />
-    <option name="LAST_COMMIT_MESSAGE" value="ora funziona!&#10;sistemato scegli pietre, funziona ma è da testare bene, anche nel caso che si mettano le stesse pietre" />
+    <MESSAGE value="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori" />
+    <option name="LAST_COMMIT_MESSAGE" value="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -14,7 +14,7 @@ public class Equilibrio
                 for (int j = 0; j < i+1; j++) {
                     somma+=mat[i][j];
                 }
-                for (int j = 1+i; j < 5; j++) {
+                for (int j = 1+i; j < Costanti.NUMERO_ELEMENTI; j++) {
                     do {
                         mat[i][j] = (int) (Math.random() * 22 -11);
                     }while (mat[i][j]==0);
@@ -22,7 +22,7 @@ public class Equilibrio
                     mat[j][i]=-mat[i][j];
                 }
             } while (somma!=0 && conta<200);
-            if(conta>199)   {
+            if(conta>200)   {
                 i=-1;
             }
         }
