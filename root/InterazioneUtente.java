@@ -3,7 +3,6 @@ package root;
 import UnibsLib.AnsiColors;
 import UnibsLib.InputData;
 import UnibsLib.Menu;
-import UnibsLib.PrettyStrings;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import static root.Main.*;
 
-public interface InterfacciaUtente
+public class InterazioneUtente
 {
     static void creaSquadra()
     {
@@ -31,63 +30,14 @@ public interface InterfacciaUtente
 
         for (int i = 0; i < Costanti.NUMERO_TAMAGOLEM; i++)
         {
-            TamaGolem t = new TamaGolem();
-            t.setNome(InputData.readNonEmptyString(giocatore.getColore()+Costanti.MESS_INSERISCI_TAMAGOLEM + (i+1) +"--> "+AnsiColors.RESET));
+            String nome = InputData.readNonEmptyString(giocatore.getColore()+Costanti.MESS_INSERISCI_TAMAGOLEM + (i+1) +"--> "+AnsiColors.RESET);
+
+            TamaGolem t = new TamaGolem(nome);
             listaTamaGolem.add(t);
         }
 
         giocatore.setTamaGolem(listaTamaGolem);
     }
-
-
-    static void scegliPietre(ArrayList<Giocatore> listaGiocatori)
-    {
-        ArrayList<Elemento>listaPietre1;
-        ArrayList<Elemento> listaPietre2;
-        do
-        {
-            HashMap<String,Integer> copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
-            listaPietre1 = new ArrayList<>();
-            listaPietre2 = new ArrayList<>();
-
-            for (int i = 0; i < listaGiocatori.size(); i++)
-            {
-                Giocatore giocatore = listaGiocatori.get(i);
-                System.out.println("\nOra tocca a te "+giocatore.getNome()+", devi scegliere le pietre \n");
-                for (int j = 0; j < Costanti.NUMERO_PIETRE; j++) {
-                    Elemento pietra = new Elemento();
-                    String[] entries = new String[copiaScortaComune.size()];
-                    for (int k = 0; k < copiaScortaComune.size(); k++) {
-                        entries[k] = copiaScortaComune.keySet().toArray()[k] + " ( " + copiaScortaComune.get(copiaScortaComune.keySet().toArray()[k]).toString() + " )";
-                    }
-                    Menu menuPietreRimaste = new Menu("Pietre disponibili", entries);
-                    int scelta = menuPietreRimaste.choose() - 1;
-                    pietra.setNome(entries[scelta].split(" ")[0]);
-                    rimuoviPietra(entries[scelta].split(" ")[0],copiaScortaComune);
-                    if(i==0)
-                    {
-                        listaPietre1.add(pietra);
-                    } else if (i==1)
-                    {
-                        listaPietre2.add(pietra);
-                    }
-                }
-
-            }
-
-        }while (confrontaSetPietre(listaPietre1,listaPietre2));
-
-        for (Elemento el:listaPietre1)
-        {
-            listaGiocatori.get(0).getTamaGolem().element().getPietre().add(el);
-        }
-        for (Elemento el:listaPietre2)
-        {
-            listaGiocatori.get(1).getTamaGolem().element().getPietre().add(el);
-        }
-
-    }
-
 
     static void scegliPietreSingolo(Giocatore gCorrente,Giocatore gSuccessivo)
     {
@@ -105,7 +55,7 @@ public interface InterfacciaUtente
             gSuccessivo.getTamaGolem().element().getPietre().remove();
         }
 
-        HashMap<String,Integer> copiaScortaComune = new HashMap<>();
+        HashMap<String,Integer> copiaScortaComune;
         do
         {
             copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
@@ -113,19 +63,16 @@ public interface InterfacciaUtente
             System.out.println("\nOra tocca a te "+gCorrente.getNome()+", devi scegliere le pietre \n");
             for (int j = 0; j < Costanti.NUMERO_PIETRE; j++)
             {
-                Elemento pietra = new Elemento();
                 String[] entries = new String[copiaScortaComune.size()];
                 for (int k = 0; k < copiaScortaComune.size(); k++) {
                     entries[k] = copiaScortaComune.keySet().toArray()[k] + " ( " + copiaScortaComune.get(copiaScortaComune.keySet().toArray()[k]).toString() + " )";
                 }
                 Menu menuPietreRimaste = new Menu("Pietre disponibili", entries);
                 int scelta = menuPietreRimaste.choose() - 1;
-                pietra.setNome(entries[scelta].split(" ")[0]);
+                String nomePietra=entries[scelta].split(" ")[0];
                 rimuoviPietra(entries[scelta].split(" ")[0],copiaScortaComune);
-                listaPietre1.add(pietra);
+                listaPietre1.add(new Elemento(nomePietra));
             }
-
-
 
         }while (confrontaSetPietre(listaPietre1,listaPietre2));
         Costanti.SCORTA_COMUNE = copiaScortaComune;

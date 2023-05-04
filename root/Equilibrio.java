@@ -1,4 +1,6 @@
 package root;
+import UnibsLib.RandomDraws;
+
 import java.lang.Math;
 public class Equilibrio
 {
@@ -16,7 +18,7 @@ public class Equilibrio
                 }
                 for (int j = 1+i; j < Costanti.NUMERO_ELEMENTI; j++) {
                     do {
-                        mat[i][j] = (int) (Math.random() * 22 -11);
+                        mat[i][j] = (int) (RandomDraws.drawInteger(-Costanti.VITA_MASSIMA,Costanti.VITA_MASSIMA));
                     }while (mat[i][j]==0);
                     somma+=mat[i][j];
                     mat[j][i]=-mat[i][j];

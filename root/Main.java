@@ -8,7 +8,7 @@ public class Main
 
 
     public static void main(String[] args) throws InterruptedException {
-        InterfacciaUtente.creaSquadra();  //creazione della squadra
+        InterazioneUtente.creaSquadra();  //creazione della squadra
 
         Battaglia.inizio();
 

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Giocatore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Giocatore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Battaglia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/Equilibrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Equilibrio.java" afterDir="false" />
+    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="TEST1(chissa)">
+      <change beforePath="$PROJECT_DIR$/root/InterfacciaUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/InterfacciaUtente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/TamaGolem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <workItem from="1682877675916" duration="29000" />
       <workItem from="1683104594006" duration="9371000" />
       <workItem from="1683128607096" duration="1242000" />
-      <workItem from="1683137499493" duration="232000" />
+      <workItem from="1683137499493" duration="11237000" />
     </task>
     <task id="LOCAL-00001" summary="da controllare hasmap e creazione menu scegli Pietre">
       <created>1682861115398</created>
@@ -104,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683129845801</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TEST1(chissa)">
+      <created>1683144381968</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683144381968</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +130,8 @@
     <MESSAGE value="non funziona un cazzo" />
     <MESSAGE value="ora funziona!&#10;sistemato scegli pietre, funziona ma è da testare bene, anche nel caso che si mettano le stesse pietre" />
     <MESSAGE value="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori" />
-    <option name="LAST_COMMIT_MESSAGE" value="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori" />
+    <MESSAGE value="TEST1(chissa)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TEST1(chissa)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

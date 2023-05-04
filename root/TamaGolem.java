@@ -16,8 +16,9 @@ public class TamaGolem
         this.vita = vita;
     }
 
-    public TamaGolem() {
-        pietre = new ArrayDeque<>();
+    public TamaGolem(String nome)
+    {
+        this.nome = nome;
     }
 
     public Deque<Elemento> getPietre() {
