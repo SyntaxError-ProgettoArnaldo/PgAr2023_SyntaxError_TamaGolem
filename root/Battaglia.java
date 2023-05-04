@@ -1,9 +1,7 @@
 package root;
 
 import UnibsLib.AnsiColors;
-import UnibsLib.PrettyStrings;
 
-import javax.print.event.PrintEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -37,7 +35,7 @@ public class Battaglia {
 
     public static void scontro() throws InterruptedException {
 
-        System.out.println(Costanti.INIZIO_SCONTRO);
+
 
         int[][] equilibrio = Equilibrio.creaEquilibrio();
 
@@ -52,12 +50,12 @@ public class Battaglia {
         System.out.println(giocatoreB.getColore()+Costanti.TURNO+giocatoreB.getNome()+ AnsiColors.RESET);
         InterazioneUtente.scegliPietreSingolo(giocatoreB,giocatoreA);
 
-
+        System.out.println(Costanti.INIZIO_SCONTRO);
         boolean continuarePartita = true;
         do {
 
             do {
-
+                System.out.println(Costanti.SEP);
                 Elemento elementoGA = giocatoreA.getTamaGolem().element().getPietre().element();
                 Elemento elementoGB = giocatoreB.getTamaGolem().element().getPietre().element();
 
@@ -75,7 +73,7 @@ public class Battaglia {
 
                 } else {
                     //nessun danno
-                    System.out.println("NESSUN DANNO");
+                    stampaAttaccoNullo(giocatoreA,giocatoreB);
                 }
 
                 giocatoreA.getTamaGolem().element().getPietre().add(giocatoreA.getTamaGolem().element().getPietre().element());
@@ -89,8 +87,7 @@ public class Battaglia {
             }
             while (controlloVita(giocatoreA, giocatoreB));
 
-            Giocatore morto;
-            Giocatore vivo;
+            Giocatore morto,vivo;
 
             if(giocatoreA.getTamaGolem().element().getVita() <= 0)
             {
@@ -106,14 +103,17 @@ public class Battaglia {
             if(morto.getTamaGolem().isEmpty())
             {
                 continuarePartita = false;
+                fineScrontro(vivo,morto);
             }
             else
             {
-                System.out.println("è il turno di: "+morto.getNome());
+                System.out.println("Mi dispiace "+morto.getNome()+", il tuo tamagolem è deceduto");
+                System.out.println("Scegli le pietre del tuo prossimo tamagolem:");
 
                 InterazioneUtente.scegliPietreSingolo(morto,vivo);
 
             }
+
 
         }
         while(continuarePartita);
@@ -121,9 +121,16 @@ public class Battaglia {
 
     }
 
+    private static void fineScrontro(Giocatore vivo, Giocatore morto)
+    {
+        System.out.println(Costanti.MESS_FINE_PARTITA);
+        System.out.println("Il giocatore VINCENTE è: "+vivo.getNome()+"!!!");
+        System.out.println("Ora ti verra mostrato l equilibrio, cio che definisce tutto il nostro mondo...");
+        Equilibrio.visualizzaEquilibrio();
+    }
+
     private static void stampaStat(Giocatore giocatoreA, Giocatore giocatoreB)
     {
-        System.out.println(Costanti.SEP);
 
 
         System.out.println(Costanti.COLORE_BASE);
@@ -136,8 +143,19 @@ public class Battaglia {
     public static void stampaAttacco(Giocatore giocatoreA, Giocatore giocatoreB, int potenza)
     {
         System.out.println(Costanti.COLORE_BASE);
-        System.out.println(giocatoreA.getNome()+" CON IL SUO TAMAGOLEM "+giocatoreA.getTamaGolem().element().getNome()+" LANCIA LA PIETRA AL TAMAGOLEM "+
-                giocatoreB.getTamaGolem().element().getNome()+" DI "+giocatoreB.getNome()+ " INFLIGGENDOGLI "+Math.abs(potenza)+" DI DANNO");
+        System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.println(giocatoreA.getTamaGolem().element().getNome()+" infligge "+potenza+" di danno a "+giocatoreB.getTamaGolem().element().getNome());
+
+        System.out.println(AnsiColors.RESET);
+    }
+
+    public static void stampaAttaccoNullo(Giocatore giocatoreA, Giocatore giocatoreB)
+    {
+        System.out.println(Costanti.COLORE_BASE);
+        System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.println("COLPO NULLO!");
         System.out.println(AnsiColors.RESET);
     }
 

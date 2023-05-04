@@ -42,12 +42,14 @@ public class Equilibrio
      */
     public static void visualizzaEquilibrio()
     {
+        System.out.println(Costanti.SEP);
         for (int i = 0; i < Costanti.NUMERO_ELEMENTI; i++) {
             for (int j = 0; j < Costanti.NUMERO_ELEMENTI; j++) {
                 System.out.print(mat[i][j]+" ");
             }
             System.out.println("\n");
         }
+        System.out.println(Costanti.SEP);
     }
 
 }
