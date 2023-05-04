@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="TEST1(chissa)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__20_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__20_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__21_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__21_39__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__20_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__20_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__21_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__21_39__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/InterfacciaUtente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/TamaGolem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/TamaGolem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Battaglia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Battaglia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Costanti.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Costanti.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Equilibrio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Equilibrio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Battaglia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Costanti.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Costanti.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Equilibrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Equilibrio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/InterfacciaUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/InterazioneUtente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/InterazioneUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/InterazioneUtente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/TamaGolem.java" afterDir="false" />
     </list>
@@ -84,6 +82,8 @@
       <workItem from="1683104594006" duration="9371000" />
       <workItem from="1683128607096" duration="1242000" />
       <workItem from="1683137499493" duration="11237000" />
+      <workItem from="1683197361327" duration="37000" />
+      <workItem from="1683197401510" duration="3630000" />
     </task>
     <task id="LOCAL-00001" summary="da controllare hasmap e creazione menu scegli Pietre">
       <created>1682861115398</created>

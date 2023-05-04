@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="TEST1(chissa)">
-      <change beforePath="$PROJECT_DIR$/root/InterfacciaUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/InterfacciaUtente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/TamaGolem.java" afterDir="false" />
-    </list>
+    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="TEST1(chissa)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +69,7 @@
       <workItem from="1683104594006" duration="9371000" />
       <workItem from="1683128607096" duration="1242000" />
       <workItem from="1683137499493" duration="11237000" />
+      <workItem from="1683197361327" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="da controllare hasmap e creazione menu scegli Pietre">
       <created>1682861115398</created>

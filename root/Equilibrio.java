@@ -4,8 +4,13 @@ import UnibsLib.RandomDraws;
 import java.lang.Math;
 public class Equilibrio
 {
+    private static int[][] mat;
+    /**
+     * Crea equilibrio che verra utilizzato per lo scontro
+     * @return
+     */
     public static int [][] creaEquilibrio()   {
-        int [][] mat= new int[Costanti.NUMERO_ELEMENTI][Costanti.NUMERO_ELEMENTI];
+        mat= new int[Costanti.NUMERO_ELEMENTI][Costanti.NUMERO_ELEMENTI];
         int somma;
 
         for (int i = 0; i < Costanti.NUMERO_ELEMENTI; i++) {
@@ -29,14 +34,20 @@ public class Equilibrio
             }
         }
 
+        return mat;
+    }
 
+    /**
+     * Stampa a video la matrice che rappresente l quilibrio
+     */
+    public static void visualizzaEquilibrio()
+    {
         for (int i = 0; i < Costanti.NUMERO_ELEMENTI; i++) {
             for (int j = 0; j < Costanti.NUMERO_ELEMENTI; j++) {
                 System.out.print(mat[i][j]+" ");
             }
             System.out.println("\n");
         }
-        return mat;
     }
 
 }

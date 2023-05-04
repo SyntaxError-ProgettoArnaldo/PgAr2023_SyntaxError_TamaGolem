@@ -12,6 +12,9 @@ import static root.Main.*;
 
 public class InterazioneUtente
 {
+    /**
+     * Input nomi dei giocatori e relativi tamagolem
+     */
     static void creaSquadra()
     {
         System.out.println(Costanti.BENVENUTO);
@@ -24,6 +27,10 @@ public class InterazioneUtente
 
     }
 
+    /**
+     * scelta nomi tamagolem
+     * @param giocatore giocatore corrente
+     */
     static void scegliTamagolem(Giocatore giocatore)
     {
         Deque<TamaGolem> listaTamaGolem = new ArrayDeque<>();
@@ -39,9 +46,9 @@ public class InterazioneUtente
         giocatore.setTamaGolem(listaTamaGolem);
     }
 
+
     static void scegliPietreSingolo(Giocatore gCorrente,Giocatore gSuccessivo)
     {
-
         ArrayList<Elemento> listaPietre1;
         ArrayList<Elemento> listaPietre2 = new ArrayList<>();
 
@@ -93,8 +100,6 @@ public class InterazioneUtente
         {
             return false;
         }
-
-
 
         for (int i = 0; i < listaPietre1.size(); i++) {
             if(!listaPietre1.get(i).getNome().equalsIgnoreCase(listaPietre2.get(i).getNome()))

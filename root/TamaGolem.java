@@ -46,15 +46,13 @@ public class TamaGolem
     }
 
     /**
-     *
+     *Toglie una certa quantita q di vita al tamagolem
      * @param q quantita da togliere
      */
     public void togliVita(int q)
     {
         this.vita = this.vita-q;
     }
-
-
 
     @Override
     public String
