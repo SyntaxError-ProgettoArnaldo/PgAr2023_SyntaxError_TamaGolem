@@ -1,7 +1,10 @@
 package root;
+import UnibsLib.PrettyStrings;
 import UnibsLib.RandomDraws;
 
-import java.lang.Math;
+import java.util.HashMap;
+
+
 public class Equilibrio
 {
     private static int[][] mat;
@@ -23,7 +26,7 @@ public class Equilibrio
                 }
                 for (int j = 1+i; j < Costanti.NUMERO_ELEMENTI; j++) {
                     do {
-                        mat[i][j] = (int) (RandomDraws.drawInteger(-Costanti.VITA_MASSIMA,Costanti.VITA_MASSIMA));
+                        mat[i][j] = RandomDraws.drawInteger(-Costanti.VITA_MASSIMA,Costanti.VITA_MASSIMA);
                     }while (mat[i][j]==0);
                     somma+=mat[i][j];
                     mat[j][i]=-mat[i][j];
@@ -40,12 +43,25 @@ public class Equilibrio
     /**
      * Stampa a video la matrice che rappresente l quilibrio
      */
-    public static void visualizzaEquilibrio()
+    public static void visualizzaEquilibrio(HashMap<String, Integer> mappaEquilibrio)
     {
-        System.out.println(Costanti.SEP);
+        System.out.println(Costanti.SEP+"\n");
+
+        int largezza = 10;
+        String[] key = mappaEquilibrio.keySet().toArray(new String[mappaEquilibrio.size()]);
+        System.out.print(PrettyStrings.center("",largezza));
+        for (int i = 0; i < key.length; i++) {
+            System.out.print(PrettyStrings.center(String.valueOf(key[i]),largezza));
+        }
+
+
+        System.out.print("\n\n");
+
         for (int i = 0; i < Costanti.NUMERO_ELEMENTI; i++) {
+
+            System.out.print(PrettyStrings.center(String.valueOf(key[i]),largezza));
             for (int j = 0; j < Costanti.NUMERO_ELEMENTI; j++) {
-                System.out.print(mat[i][j]+" ");
+                System.out.print(PrettyStrings.center(String.valueOf(mat[i][j]),largezza));
             }
             System.out.println("\n");
         }

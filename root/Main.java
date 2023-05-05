@@ -7,9 +7,13 @@ public class Main
 
     public static void main(String[] args) throws InterruptedException {
 
-        InterazioneUtente.creaSquadra();  //creazione della squadra
 
-        Battaglia.inizio();
-
+        boolean continuare;
+        do {
+            InterazioneUtente.creaSquadra();  //creazione della squadra
+            Battaglia.inizio();  //battaglia
+            continuare=InterazioneUtente.continua();
+        }while(continuare);
+        System.out.println(Costanti.FINE);
     }
 }

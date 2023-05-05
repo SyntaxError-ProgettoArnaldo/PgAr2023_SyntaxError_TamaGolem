@@ -63,13 +63,20 @@ public class Battaglia {
                 if (potenza < 0) {
 
                     //secondo fa male al primo
-                    stampaAttacco(giocatoreB,giocatoreA,potenza);
-                    giocatoreA.getTamaGolem().element().togliVita(Math.abs(potenza));
+                    if(giocatoreA.getTamaGolem().element().togliVita(Math.abs(potenza))>0)
+                    {
+                        stampaAttacco(giocatoreB,giocatoreA,Math.abs(potenza));
+                    }
+
+
 
                 } else if (potenza > 0) {
                     //primo fa male al secondo
-                    stampaAttacco(giocatoreA,giocatoreB,potenza);
-                    giocatoreB.getTamaGolem().element().togliVita(Math.abs(potenza));
+
+                   if(giocatoreB.getTamaGolem().element().togliVita(Math.abs(potenza))>0)
+                   {
+                       stampaAttacco(giocatoreA,giocatoreB,Math.abs(potenza));
+                   }
 
                 } else {
                     //nessun danno
@@ -83,9 +90,9 @@ public class Battaglia {
                 stampaStat(giocatoreA,giocatoreB);
                 giocatoreA.getTamaGolem().element().getPietre().remove();
                 giocatoreB.getTamaGolem().element().getPietre().remove();
-                TimeUnit.MILLISECONDS.sleep(2000);
+                TimeUnit.MILLISECONDS.sleep(500);
             }
-            while (controlloVita(giocatoreA, giocatoreB));
+            while (controlloVitaTamagolem(giocatoreA, giocatoreB));
 
             Giocatore morto,vivo;
 
@@ -103,14 +110,17 @@ public class Battaglia {
             if(morto.getTamaGolem().isEmpty())
             {
                 continuarePartita = false;
-                fineScrontro(vivo,morto);
+                fineScrontro(vivo,mappaEquilibrio);
             }
             else
             {
-                System.out.println("Mi dispiace "+morto.getNome()+", il tuo tamagolem è deceduto");
-                System.out.println("Scegli le pietre del tuo prossimo tamagolem:");
+                System.out.println(AnsiColors.RED);
+                System.out.printf(Costanti.DECEDUTO,morto.getNome());
 
+                System.out.println("Scegli le pietre del tuo prossimo tamagolem:");
+                System.out.println(AnsiColors.RESET);
                 InterazioneUtente.scegliPietreSingolo(morto,vivo);
+
 
             }
 
@@ -121,21 +131,20 @@ public class Battaglia {
 
     }
 
-    private static void fineScrontro(Giocatore vivo, Giocatore morto)
-    {
-        System.out.println(Costanti.MESS_FINE_PARTITA);
-        System.out.println("Il giocatore VINCENTE è: "+vivo.getNome()+"!!!");
-        System.out.println("Ora ti verra mostrato l equilibrio, cio che definisce tutto il nostro mondo...");
-        Equilibrio.visualizzaEquilibrio();
-    }
 
     private static void stampaStat(Giocatore giocatoreA, Giocatore giocatoreB)
     {
 
 
         System.out.println(Costanti.COLORE_BASE);
+        System.out.println("Giocatore--> "+giocatoreA.getNome());
         System.out.println("VITA "+giocatoreA.getTamaGolem().element().getNome()+": "+giocatoreA.getTamaGolem().element().getVita());
-        System.out.println("VITA "+giocatoreB.getTamaGolem().element().getNome()+": "+giocatoreB.getTamaGolem().element().getVita());
+        System.out.println("TAMAGOLEM RIMASTI: "+giocatoreA.getTamaGolem().size());
+
+
+        System.out.println("Giocatore--> "+giocatoreB.getNome());
+        System.out.println("VITA: "+giocatoreB.getTamaGolem().element().getNome()+": "+giocatoreB.getTamaGolem().element().getVita());
+        System.out.println("TAMAGOLEM RIMASTI: "+giocatoreB.getTamaGolem().size());
         System.out.println(AnsiColors.RESET);
 
     }
@@ -144,7 +153,8 @@ public class Battaglia {
     {
         System.out.println(Costanti.COLORE_BASE);
         System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
-        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreB.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
+
         System.out.println(giocatoreA.getTamaGolem().element().getNome()+" infligge "+potenza+" di danno a "+giocatoreB.getTamaGolem().element().getNome());
 
         System.out.println(AnsiColors.RESET);
@@ -154,12 +164,12 @@ public class Battaglia {
     {
         System.out.println(Costanti.COLORE_BASE);
         System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
-        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreB.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
         System.out.println("COLPO NULLO!");
         System.out.println(AnsiColors.RESET);
     }
 
-    private static boolean controlloVita(Giocatore gCorrente, Giocatore gSuccessivo)
+    private static boolean controlloVitaTamagolem(Giocatore gCorrente, Giocatore gSuccessivo)
     {
         if(gCorrente.getTamaGolem().element().getVita()<=0 || gSuccessivo.getTamaGolem().element().getVita()<=0)
         {
@@ -168,6 +178,15 @@ public class Battaglia {
         return true;
     }
 
+    private static void fineScrontro(Giocatore vivo,HashMap<String, Integer> mappaEquilibrio)
+    {
+        System.out.println(AnsiColors.GREEN);
+        System.out.println(Costanti.MESS_FINE_PARTITA);
+        System.out.println("Il giocatore VINCENTE è: "+vivo.getNome()+"!!!");
+        System.out.println("Ora ti verra mostrato l equilibrio, cio che definisce tutto il nostro mondo...\n");
+        System.out.println(AnsiColors.RESET);
+        Equilibrio.visualizzaEquilibrio(mappaEquilibrio);
+    }
 
 
 

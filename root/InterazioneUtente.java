@@ -119,4 +119,19 @@ public class InterazioneUtente
             copiaScortaComune.remove(nome);
         }
     }
+
+    /**
+     * Chiede all utente se vuole continuare o meno
+     * @return 0--> no esci, 1--> si continua
+     */
+    public static boolean continua()
+    {
+        int scelta = InputData.readIntegerBetween(Costanti.CONTINUARE,0,1);
+        if(scelta==0)
+        {
+            return false;
+        }
+        return true;
+
+    }
 }
