@@ -12,7 +12,6 @@ public class Costanti
     //COLORI
     public static final AnsiColors COLORE_GIOCATORE_A = AnsiColors.YELLOW;
     public static final AnsiColors COLORE_GIOCATORE_B = AnsiColors.GREEN;
-    public static final AnsiColors COLORE_BASE = AnsiColors.BLACK;
 
     //STRINGHE
     public static final String BENVENUTO = "\nBenvenuto nel mondo dei Tamagolem!\n";
@@ -23,7 +22,7 @@ public class Costanti
     public static final String MESS_FINE_PARTITA = "LA PARTITA E' CONCLUSA!";
     public static final String CONTINUARE = "Inserisci 0 se vuoi uscire, 1 se vuoi riiniziare una nuova partita?";
     public static final String  FINE = "Grazie per aver combattuto nel mondo dei tamagolem!";
-    public static final String DECEDUTO = "Mi dispiace %s, il tuo tamagolem è deceduto !";
+    public static final String DECEDUTO = "Mi dispiace %s, il tuo tamagolem è deceduto! \n";
 
     //INTERI
     public static final int NUMERO_ELEMENTI = 6;

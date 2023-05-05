@@ -28,7 +28,7 @@ public class InterazioneUtente
     }
 
     /**
-     * scelta nomi tamagolem
+     * Scelta nomi tamagolem
      * @param giocatore giocatore corrente
      */
     static void scegliTamagolem(Giocatore giocatore)

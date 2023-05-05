@@ -44,11 +44,10 @@ public class Battaglia {
         Giocatore giocatoreA = listaGiocatori.get(0);
         Giocatore giocatoreB = listaGiocatori.get(1);
 
-        System.out.println(giocatoreA.getColore()+Costanti.TURNO+giocatoreA.getNome()+ AnsiColors.RESET);
-        InterazioneUtente.scegliPietreSingolo(giocatoreA,giocatoreB);
+        if(!test)   {
+            assegnaPietre(giocatoreA,giocatoreB);
+        }
 
-        System.out.println(giocatoreB.getColore()+Costanti.TURNO+giocatoreB.getNome()+ AnsiColors.RESET);
-        InterazioneUtente.scegliPietreSingolo(giocatoreB,giocatoreA);
 
         System.out.println(Costanti.INIZIO_SCONTRO);
         boolean continuarePartita = true;
@@ -131,12 +130,20 @@ public class Battaglia {
 
     }
 
+    private static void assegnaPietre(Giocatore giocatoreA, Giocatore giocatoreB) {
+
+        System.out.println(giocatoreA.getColore()+Costanti.TURNO+giocatoreA.getNome()+ AnsiColors.RESET);
+        InterazioneUtente.scegliPietreSingolo(giocatoreA,giocatoreB);
+
+        System.out.println(giocatoreB.getColore()+Costanti.TURNO+giocatoreB.getNome()+ AnsiColors.RESET);
+        InterazioneUtente.scegliPietreSingolo(giocatoreB,giocatoreA);
+    }
+
 
     private static void stampaStat(Giocatore giocatoreA, Giocatore giocatoreB)
     {
 
 
-        System.out.println(Costanti.COLORE_BASE);
         System.out.println("Giocatore--> "+giocatoreA.getNome());
         System.out.println("VITA "+giocatoreA.getTamaGolem().element().getNome()+": "+giocatoreA.getTamaGolem().element().getVita());
         System.out.println("TAMAGOLEM RIMASTI: "+giocatoreA.getTamaGolem().size());
@@ -145,28 +152,23 @@ public class Battaglia {
         System.out.println("Giocatore--> "+giocatoreB.getNome());
         System.out.println("VITA: "+giocatoreB.getTamaGolem().element().getNome()+": "+giocatoreB.getTamaGolem().element().getVita());
         System.out.println("TAMAGOLEM RIMASTI: "+giocatoreB.getTamaGolem().size());
-        System.out.println(AnsiColors.RESET);
 
     }
 
     public static void stampaAttacco(Giocatore giocatoreA, Giocatore giocatoreB, int potenza)
     {
-        System.out.println(Costanti.COLORE_BASE);
         System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
         System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreB.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
 
         System.out.println(giocatoreA.getTamaGolem().element().getNome()+" infligge "+potenza+" di danno a "+giocatoreB.getTamaGolem().element().getNome());
 
-        System.out.println(AnsiColors.RESET);
     }
 
     public static void stampaAttaccoNullo(Giocatore giocatoreA, Giocatore giocatoreB)
     {
-        System.out.println(Costanti.COLORE_BASE);
         System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
         System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreB.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
         System.out.println("COLPO NULLO!");
-        System.out.println(AnsiColors.RESET);
     }
 
     private static boolean controlloVitaTamagolem(Giocatore gCorrente, Giocatore gSuccessivo)
