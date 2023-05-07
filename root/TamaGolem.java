@@ -5,8 +5,8 @@ import java.util.Deque;
 
 public class TamaGolem
 {
-    private Deque<Elemento> pietre = new ArrayDeque<>();
-    private String nome;
+    private final Deque<Elemento> pietre = new ArrayDeque<>();
+    private final String nome;
     private int vita = Costanti.VITA_MASSIMA;
 
     public TamaGolem(String nome)
@@ -14,24 +14,27 @@ public class TamaGolem
         this.nome = nome;
     }
 
-    public Deque<Elemento> getPietre() {
+    public Deque<Elemento> getPietre()
+    {
         return pietre;
     }
 
 
-    public String getNome() {
+    public String getNome()
+    {
         return nome;
     }
 
 
-    public int getVita() {
+    public int getVita()
+    {
         return vita;
     }
 
 
     /**
-     *Toglie una certa quantita q di vita al tamagolem
-     * @param q quantita da togliere
+     *Toglie una certa quantità q di vita al tamagolem
+     * @param q quantità da togliere
      * @return vita rimasta
      */
     public int togliVita(int q)
@@ -44,7 +47,8 @@ public class TamaGolem
 
     @Override
     public String
-    toString() {
+    toString()
+    {
         return "TamaGolem{" +
                 "pietre=" + pietre +
                 ", nome='" + nome + '\'' +

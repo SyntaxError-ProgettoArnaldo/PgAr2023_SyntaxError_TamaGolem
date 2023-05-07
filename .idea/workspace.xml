@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="TEST1(chissa)">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__20_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__20_21__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__21_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_05_23__21_39__Changes_.xml" afterDir="false" />
+    <list default="true" id="0bf3c05e-ab85-4264-bace-58b9137d2022" name="Changes" comment="Fatto metodo per i test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Battaglia.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Battaglia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Costanti.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Costanti.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Equilibrio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Equilibrio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/TamaGolem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PgAr2023_SyntaxError_TamaGolem/root/TamaGolem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Battaglia.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Battaglia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Costanti.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Costanti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Elemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/Equilibrio.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Equilibrio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/Giocatore.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Giocatore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/InterazioneUtente.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/InterazioneUtente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/root/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root/TamaGolem.java" beforeDir="false" afterPath="$PROJECT_DIR$/root/TamaGolem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,25 +42,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/marcocesari/Downloads/PgAr2023_SyntaxError_TamaGolem",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/marcocesari/Downloads/PgAr2023_SyntaxError_TamaGolem&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="root.Main" />
@@ -125,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683144381968</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fatto metodo per i test">
+      <created>1683297767917</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683297767917</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +151,8 @@
     <MESSAGE value="ora funziona!&#10;sistemato scegli pietre, funziona ma è da testare bene, anche nel caso che si mettano le stesse pietre" />
     <MESSAGE value="sistemati due piccoli errori e aggiunto a classi costanti+ prova colori" />
     <MESSAGE value="TEST1(chissa)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TEST1(chissa)" />
+    <MESSAGE value="Fatto metodo per i test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fatto metodo per i test" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

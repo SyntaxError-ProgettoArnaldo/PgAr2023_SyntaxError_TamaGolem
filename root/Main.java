@@ -2,56 +2,62 @@ package root;
 
 public class Main
 {
-    public static final Giocatore giocatore1 = new Giocatore(Costanti.COLORE_GIOCATORE_A);
-    public static final Giocatore giocatore2 = new Giocatore(Costanti.COLORE_GIOCATORE_B);
+    public static Giocatore giocatore1;
+    public static Giocatore giocatore2;
 
-    static boolean test = true;
+    static boolean test = false;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException
+    {
 
             boolean continuare;
-            do {
-                if(test)    {
+            do
+            {
+                if(test)
+                {
                     faiTest();
                 }
-                else {
+                else
+                {
                     InterazioneUtente.creaSquadra();  //creazione della squadra
+                    Costanti.inizializzaScortaComune(); //inizializzazione della scorta comune delle pietre dei due giocatori
                 }
                 Battaglia.inizio();  //battaglia
                 continuare=InterazioneUtente.continua();
-            }while(continuare);
+            }
+            while(continuare);
             System.out.println(Costanti.FINE);
 
     }
 
-    private static void faiTest() {
-        giocatore1.setNome("Giocatore1");
-        giocatore2.setNome("Giocatore2");
+    public static void faiTest()
+    {
+        giocatore1 = new Giocatore("Giocatore1",Costanti.COLORE_GIOCATORE_A);
+        giocatore2 = new Giocatore("Giocatore2",Costanti.COLORE_GIOCATORE_B);
 
         giocatore1.getTamaGolem().add(new TamaGolem("G1Tama1"));
         giocatore1.getTamaGolem().add(new TamaGolem("G1Tama2"));
         giocatore1.getTamaGolem().add(new TamaGolem("G1Tama3"));
 
+        giocatore1.getTamaGolem().element().getPietre().add(new Elemento(Costanti.FUOCO));
+        giocatore1.getTamaGolem().element().getPietre().add(new Elemento(Costanti.TERRA));
+        giocatore1.getTamaGolem().element().getPietre().add(new Elemento(Costanti.ACQUA));
+
         giocatore2.getTamaGolem().add(new TamaGolem("G2Tama1"));
         giocatore2.getTamaGolem().add(new TamaGolem("G2Tama2"));
         giocatore2.getTamaGolem().add(new TamaGolem("G2Tama3"));
 
-        giocatore1.getTamaGolem().element().getPietre().add(new Elemento("FUOCO"));
-        giocatore1.getTamaGolem().element().getPietre().add(new Elemento("TERRA"));
-        giocatore1.getTamaGolem().element().getPietre().add(new Elemento("ACQUA"));
+        giocatore2.getTamaGolem().element().getPietre().add(new Elemento(Costanti.BUIO));
+        giocatore2.getTamaGolem().element().getPietre().add(new Elemento(Costanti.ACQUA));
+        giocatore2.getTamaGolem().element().getPietre().add(new Elemento(Costanti.VELENO));
 
-        giocatore2.getTamaGolem().element().getPietre().add(new Elemento("BUIO"));
-        giocatore2.getTamaGolem().element().getPietre().add(new Elemento("ACQUA"));
-        giocatore2.getTamaGolem().element().getPietre().add(new Elemento("VELENO"));
+        Costanti.inizializzaScortaComune();
 
-        /*Costanti.inizializzaScortaComune();
-
-        Costanti.SCORTA_COMUNE.put("FUOCO",2);
-        Costanti.SCORTA_COMUNE.replace("TERRA",2);
-        Costanti.SCORTA_COMUNE.replace("ACQUA",2);
-        Costanti.SCORTA_COMUNE.replace("BUIO",2);
-        Costanti.SCORTA_COMUNE.replace("ACQUA",1);
-        Costanti.SCORTA_COMUNE.replace("VELENO",2);*/
-
+        Costanti.SCORTA_COMUNE.put(Costanti.FUOCO, Costanti.SCORTA_COMUNE.get(Costanti.FUOCO)-1);
+        Costanti.SCORTA_COMUNE.replace(Costanti.TERRA,Costanti.SCORTA_COMUNE.get(Costanti.TERRA)-1);
+        Costanti.SCORTA_COMUNE.replace(Costanti.ACQUA,Costanti.SCORTA_COMUNE.get(Costanti.ACQUA)-1);
+        Costanti.SCORTA_COMUNE.replace(Costanti.BUIO,Costanti.SCORTA_COMUNE.get(Costanti.BUIO)-1);
+        Costanti.SCORTA_COMUNE.replace(Costanti.ACQUA,Costanti.SCORTA_COMUNE.get(Costanti.ACQUA)-1);
+        Costanti.SCORTA_COMUNE.replace(Costanti.VELENO,Costanti.SCORTA_COMUNE.get(Costanti.VELENO)-1);
     }
 }

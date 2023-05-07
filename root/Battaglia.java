@@ -11,13 +11,13 @@ import static root.Main.*;
 
 public class Battaglia {
 
-    private static ArrayList<Giocatore> listaGiocatori = new ArrayList<>();
-    public static void inizio() throws InterruptedException {
-        Costanti.inizializzaScortaComune();
+    public static final int TIMEOUT = 2000;
+    private static final ArrayList<Giocatore> listaGiocatori = new ArrayList<>();
+    public static void inizio() throws InterruptedException
+    {
         listaGiocatori.add(giocatore1);
         listaGiocatori.add(giocatore2);
         Collections.shuffle(listaGiocatori);
-        //InterfacciaUtente.scegliPietre(listaGiocatori);
         scontro();
     }
 
@@ -29,14 +29,11 @@ public class Battaglia {
             mappaEquilibrio.put(String.valueOf(Costanti.SCORTA_COMUNE.keySet().toArray()[k]),k);
         }
         return mappaEquilibrio;
-
     }
 
 
-    public static void scontro() throws InterruptedException {
-
-
-
+    public static void scontro() throws InterruptedException
+    {
         int[][] equilibrio = Equilibrio.creaEquilibrio();
 
         HashMap<String, Integer> mappaEquilibrio = creaMappaEquilibrio();
@@ -44,94 +41,89 @@ public class Battaglia {
         Giocatore giocatoreA = listaGiocatori.get(0);
         Giocatore giocatoreB = listaGiocatori.get(1);
 
-        if(!test)   {
+        if(!test)
+        {
             assegnaPietre(giocatoreA,giocatoreB);
         }
 
 
         System.out.println(Costanti.INIZIO_SCONTRO);
         boolean continuarePartita = true;
-        do {
-
-            do {
+        do
+        {
+            do
+            {
                 System.out.println(Costanti.SEP);
                 Elemento elementoGA = giocatoreA.getTamaGolem().element().getPietre().element();
                 Elemento elementoGB = giocatoreB.getTamaGolem().element().getPietre().element();
 
                 int potenza = equilibrio[mappaEquilibrio.get(elementoGA.getNome())][mappaEquilibrio.get(elementoGB.getNome())];
-                if (potenza < 0) {
-
+                if (potenza < 0)
+                {
                     //secondo fa male al primo
                     if(giocatoreA.getTamaGolem().element().togliVita(Math.abs(potenza))>0)
                     {
                         stampaAttacco(giocatoreB,giocatoreA,Math.abs(potenza));
                     }
 
-
-
-                } else if (potenza > 0) {
+                }
+                else if (potenza > 0)
+                {
                     //primo fa male al secondo
-
                    if(giocatoreB.getTamaGolem().element().togliVita(Math.abs(potenza))>0)
                    {
                        stampaAttacco(giocatoreA,giocatoreB,Math.abs(potenza));
                    }
-
-                } else {
+                }
+                else
+                {
                     //nessun danno
                     stampaAttaccoNullo(giocatoreA,giocatoreB);
                 }
 
                 giocatoreA.getTamaGolem().element().getPietre().add(giocatoreA.getTamaGolem().element().getPietre().element());
                 giocatoreB.getTamaGolem().element().getPietre().add(giocatoreB.getTamaGolem().element().getPietre().element());
-                //System.out.println("vita 1--> " + giocatoreA.getTamaGolem().element().getVita());
-                //System.out.println("vita 2--> " + giocatoreB.getTamaGolem().element().getVita());
                 stampaStat(giocatoreA,giocatoreB);
                 giocatoreA.getTamaGolem().element().getPietre().remove();
                 giocatoreB.getTamaGolem().element().getPietre().remove();
-                TimeUnit.MILLISECONDS.sleep(500);
+                TimeUnit.MILLISECONDS.sleep(TIMEOUT);
             }
+
             while (controlloVitaTamagolem(giocatoreA, giocatoreB));
 
             Giocatore morto,vivo;
 
             if(giocatoreA.getTamaGolem().element().getVita() <= 0)
             {
-                morto = new Giocatore(giocatoreA);
-                vivo = new Giocatore(giocatoreB);
+                morto = giocatoreA;
+                vivo = giocatoreB;
             }
             else
             {
-                morto = new Giocatore(giocatoreB);
-                vivo = new Giocatore(giocatoreA);
+                morto = giocatoreB;
+                vivo = giocatoreA;
             }
             morto.getTamaGolem().remove();
             if(morto.getTamaGolem().isEmpty())
             {
                 continuarePartita = false;
-                fineScrontro(vivo,mappaEquilibrio);
+                fineScontro(vivo,mappaEquilibrio);
             }
             else
             {
                 System.out.println(AnsiColors.RED);
                 System.out.printf(Costanti.DECEDUTO,morto.getNome());
 
-                System.out.println("Scegli le pietre del tuo prossimo tamagolem:");
+                System.out.println(Costanti.SCELTA_PIETRE);
                 System.out.println(AnsiColors.RESET);
                 InterazioneUtente.scegliPietreSingolo(morto,vivo);
-
-
             }
-
-
         }
         while(continuarePartita);
-
-
     }
 
-    private static void assegnaPietre(Giocatore giocatoreA, Giocatore giocatoreB) {
-
+    private static void assegnaPietre(Giocatore giocatoreA, Giocatore giocatoreB)
+    {
         System.out.println(giocatoreA.getColore()+Costanti.TURNO+giocatoreA.getNome()+ AnsiColors.RESET);
         InterazioneUtente.scegliPietreSingolo(giocatoreA,giocatoreB);
 
@@ -142,33 +134,28 @@ public class Battaglia {
 
     private static void stampaStat(Giocatore giocatoreA, Giocatore giocatoreB)
     {
+        System.out.printf(Costanti.NOME_GIOCATORE, giocatoreA.getNome());
+        System.out.printf(Costanti.VITA, giocatoreA.getTamaGolem().element().getNome(),giocatoreA.getTamaGolem().element().getVita());
+        System.out.printf(Costanti.TAMAGOLEM_RIMASTI, giocatoreA.getTamaGolem().size());
 
-
-        System.out.println("Giocatore--> "+giocatoreA.getNome());
-        System.out.println("VITA "+giocatoreA.getTamaGolem().element().getNome()+": "+giocatoreA.getTamaGolem().element().getVita());
-        System.out.println("TAMAGOLEM RIMASTI: "+giocatoreA.getTamaGolem().size());
-
-
-        System.out.println("Giocatore--> "+giocatoreB.getNome());
-        System.out.println("VITA: "+giocatoreB.getTamaGolem().element().getNome()+": "+giocatoreB.getTamaGolem().element().getVita());
-        System.out.println("TAMAGOLEM RIMASTI: "+giocatoreB.getTamaGolem().size());
-
+        System.out.printf(Costanti.NOME_GIOCATORE, giocatoreB.getNome());
+        System.out.printf(Costanti.VITA, giocatoreB.getTamaGolem().element().getNome(),giocatoreB.getTamaGolem().element().getVita());
+        System.out.printf(Costanti.TAMAGOLEM_RIMASTI, giocatoreB.getTamaGolem().size());
     }
 
     public static void stampaAttacco(Giocatore giocatoreA, Giocatore giocatoreB, int potenza)
     {
-        System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
-        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreB.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
+        System.out.printf(Costanti.ATTACCO, giocatoreA.getTamaGolem().element().getNome(),giocatoreA.getNome(),giocatoreA.getTamaGolem().element().getPietre().element().getNome());
+        System.out.printf(Costanti.ATTACCO, giocatoreB.getTamaGolem().element().getNome(),giocatoreB.getNome(),giocatoreB.getTamaGolem().element().getPietre().element().getNome());
 
-        System.out.println(giocatoreA.getTamaGolem().element().getNome()+" infligge "+potenza+" di danno a "+giocatoreB.getTamaGolem().element().getNome());
-
+        System.out.printf(Costanti.DANNO_INFLITTO,giocatoreA.getTamaGolem().element().getNome(),potenza, giocatoreB.getTamaGolem().element().getNome() );
     }
 
     public static void stampaAttaccoNullo(Giocatore giocatoreA, Giocatore giocatoreB)
     {
-        System.out.println("Il tamagolem "+giocatoreA.getTamaGolem().element().getNome()+" di "+giocatoreA.getNome()+" USA "+giocatoreA.getTamaGolem().element().getPietre().element().getNome()+"!");
-        System.out.println("Il tamagolem "+giocatoreB.getTamaGolem().element().getNome()+" di "+giocatoreB.getNome()+" USA "+giocatoreB.getTamaGolem().element().getPietre().element().getNome()+"!");
-        System.out.println("COLPO NULLO!");
+        System.out.printf(Costanti.ATTACCO, giocatoreA.getTamaGolem().element().getNome(),giocatoreA.getNome(),giocatoreA.getTamaGolem().element().getPietre().element().getNome());
+        System.out.printf(Costanti.ATTACCO, giocatoreB.getTamaGolem().element().getNome(),giocatoreB.getNome(),giocatoreB.getTamaGolem().element().getPietre().element().getNome());
+        System.out.println(Costanti.COLPO_NULLO);
     }
 
     private static boolean controlloVitaTamagolem(Giocatore gCorrente, Giocatore gSuccessivo)
@@ -180,20 +167,13 @@ public class Battaglia {
         return true;
     }
 
-    private static void fineScrontro(Giocatore vivo,HashMap<String, Integer> mappaEquilibrio)
+    private static void fineScontro(Giocatore vivo, HashMap<String, Integer> mappaEquilibrio)
     {
         System.out.println(AnsiColors.GREEN);
         System.out.println(Costanti.MESS_FINE_PARTITA);
-        System.out.println("Il giocatore VINCENTE è: "+vivo.getNome()+"!!!");
-        System.out.println("Ora ti verra mostrato l equilibrio, cio che definisce tutto il nostro mondo...\n");
+        System.out.printf(Costanti.VINCITORE,vivo.getNome());
+        System.out.println(Costanti.VISUALIZZA_EQUILIBRIO);
         System.out.println(AnsiColors.RESET);
         Equilibrio.visualizzaEquilibrio(mappaEquilibrio);
     }
-
-
-
-
-
-
-
 }
