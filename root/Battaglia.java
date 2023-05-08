@@ -26,7 +26,7 @@ public class Battaglia {
 
     /**
      * Crea la mappa dell equilibrio
-     * @return HashMap relativo agli elementi presenti nell equilbrio
+     * @return HashMap relativo agli elementi presenti nell equilibrio
      */
     public static HashMap<String, Integer> creaMappaEquilibrio()
     {
@@ -92,7 +92,7 @@ public class Battaglia {
                 giocatoreA.getTamaGolem().element().getPietre().add(giocatoreA.getTamaGolem().element().getPietre().element());
                 giocatoreB.getTamaGolem().element().getPietre().add(giocatoreB.getTamaGolem().element().getPietre().element());
                 stampaStat(giocatoreA,giocatoreB);
-                //eliminazione pietra coorente, si passa alla successiva
+                //eliminazione pietra corrente, si passa alla successiva
                 giocatoreA.getTamaGolem().element().getPietre().remove();
                 giocatoreB.getTamaGolem().element().getPietre().remove();
                 try {
@@ -150,7 +150,7 @@ public class Battaglia {
 
 
     /**
-     * stampa i dati relativi ai due giocatori, come il nome, la vita e i tamagole rimasti
+     * Stampa i dati relativi ai due giocatori, come il nome, la vita e i tamagolem rimasti
      */
     private static void stampaStat(Giocatore giocatoreA, Giocatore giocatoreB)
     {

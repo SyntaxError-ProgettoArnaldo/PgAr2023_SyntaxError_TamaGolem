@@ -82,7 +82,7 @@ public class InterazioneUtente
                 String[] entries = new String[copiaScortaComune.size()];
                 for (int k = 0; k < copiaScortaComune.size(); k++)
                 {
-                    //rima del menu: nome elemento + ( quantita rimasta )
+                    //rima del menu: nome elemento + ( quantità rimasta )
                     entries[k] = copiaScortaComune.keySet().toArray()[k] + " ( " + copiaScortaComune.get(copiaScortaComune.keySet().toArray()[k]).toString() + " )";
                 }
                 Menu menuPietreRimaste = new Menu(Costanti.PIETRE_DISPONIBILI, entries);
