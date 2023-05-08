@@ -31,7 +31,6 @@ public class TamaGolem
         return vita;
     }
 
-
     /**
      *Toglie una certa quantità q di vita al tamagolem
      * @param q quantità da togliere

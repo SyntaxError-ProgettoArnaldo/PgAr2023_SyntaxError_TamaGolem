@@ -10,10 +10,13 @@ import java.util.concurrent.TimeUnit;
 import static root.Main.*;
 
 public class Battaglia {
-
-    public static final int TIMEOUT = 2000;
+    public static final int TIMEOUT = 2000;   //lasso di tempo tra due "mosse"
     private static final ArrayList<Giocatore> listaGiocatori = new ArrayList<>();
-    public static void inizio() throws InterruptedException
+
+    /**
+     * Metodo per randomizzare il primo giocatore, da inizio allo scontro
+     */
+    public static void inizio()
     {
         listaGiocatori.add(giocatore1);
         listaGiocatori.add(giocatore2);
@@ -21,6 +24,10 @@ public class Battaglia {
         scontro();
     }
 
+    /**
+     * Crea la mappa dell equilibrio
+     * @return HashMap relativo agli elementi presenti nell equilbrio
+     */
     public static HashMap<String, Integer> creaMappaEquilibrio()
     {
         HashMap<String, Integer> mappaEquilibrio = new HashMap<>();
@@ -32,9 +39,9 @@ public class Battaglia {
     }
 
 
-    public static void scontro() throws InterruptedException
+    public static void scontro()
     {
-        int[][] equilibrio = Equilibrio.creaEquilibrio();
+        int[][] equilibrio = Equilibrio.creaEquilibrio();  //creazione equilibrio
 
         HashMap<String, Integer> mappaEquilibrio = creaMappaEquilibrio();
 
@@ -54,13 +61,14 @@ public class Battaglia {
             do
             {
                 System.out.println(Costanti.SEP);
+                //pietre correnti dei due giocatori
                 Elemento elementoGA = giocatoreA.getTamaGolem().element().getPietre().element();
                 Elemento elementoGB = giocatoreB.getTamaGolem().element().getPietre().element();
-
+                //potenza in base ai due elementi delle due pietre
                 int potenza = equilibrio[mappaEquilibrio.get(elementoGA.getNome())][mappaEquilibrio.get(elementoGB.getNome())];
                 if (potenza < 0)
                 {
-                    //secondo fa male al primo
+                    //secondo fa danno al primo
                     if(giocatoreA.getTamaGolem().element().togliVita(Math.abs(potenza))>0)
                     {
                         stampaAttacco(giocatoreB,giocatoreA,Math.abs(potenza));
@@ -69,7 +77,7 @@ public class Battaglia {
                 }
                 else if (potenza > 0)
                 {
-                    //primo fa male al secondo
+                    //primo fa danno al secondo
                    if(giocatoreB.getTamaGolem().element().togliVita(Math.abs(potenza))>0)
                    {
                        stampaAttacco(giocatoreA,giocatoreB,Math.abs(potenza));
@@ -84,15 +92,20 @@ public class Battaglia {
                 giocatoreA.getTamaGolem().element().getPietre().add(giocatoreA.getTamaGolem().element().getPietre().element());
                 giocatoreB.getTamaGolem().element().getPietre().add(giocatoreB.getTamaGolem().element().getPietre().element());
                 stampaStat(giocatoreA,giocatoreB);
+                //eliminazione pietra coorente, si passa alla successiva
                 giocatoreA.getTamaGolem().element().getPietre().remove();
                 giocatoreB.getTamaGolem().element().getPietre().remove();
-                TimeUnit.MILLISECONDS.sleep(TIMEOUT);
+                try {
+                    TimeUnit.MILLISECONDS.sleep(TIMEOUT);
+                } catch (InterruptedException e) {
+                    System.out.println(Costanti.ERRORE_SLEEP);
+                }
             }
 
             while (controlloVitaTamagolem(giocatoreA, giocatoreB));
 
             Giocatore morto,vivo;
-
+            //se uno dei due giocatori ha un tamagolem senza vita
             if(giocatoreA.getTamaGolem().element().getVita() <= 0)
             {
                 morto = giocatoreA;
@@ -113,7 +126,6 @@ public class Battaglia {
             {
                 System.out.println(AnsiColors.RED);
                 System.out.printf(Costanti.DECEDUTO,morto.getNome());
-
                 System.out.println(Costanti.SCELTA_PIETRE);
                 System.out.println(AnsiColors.RESET);
                 InterazioneUtente.scegliPietreSingolo(morto,vivo);
@@ -122,6 +134,11 @@ public class Battaglia {
         while(continuarePartita);
     }
 
+    /**
+     * Assegna le pietre ai due giocatori
+     * @param giocatoreA
+     * @param giocatoreB
+     */
     private static void assegnaPietre(Giocatore giocatoreA, Giocatore giocatoreB)
     {
         System.out.println(giocatoreA.getColore()+Costanti.TURNO+giocatoreA.getNome()+ AnsiColors.RESET);
@@ -132,6 +149,9 @@ public class Battaglia {
     }
 
 
+    /**
+     * stampa i dati relativi ai due giocatori, come il nome, la vita e i tamagole rimasti
+     */
     private static void stampaStat(Giocatore giocatoreA, Giocatore giocatoreB)
     {
         System.out.printf(Costanti.NOME_GIOCATORE, giocatoreA.getNome());
@@ -143,6 +163,10 @@ public class Battaglia {
         System.out.printf(Costanti.TAMAGOLEM_RIMASTI, giocatoreB.getTamaGolem().size());
     }
 
+    /**
+     * Stampa l attacco in caso ci sia stato un danno
+     * @param potenza dell attacco
+     */
     public static void stampaAttacco(Giocatore giocatoreA, Giocatore giocatoreB, int potenza)
     {
         System.out.printf(Costanti.ATTACCO, giocatoreA.getTamaGolem().element().getNome(),giocatoreA.getNome(),giocatoreA.getTamaGolem().element().getPietre().element().getNome());
@@ -151,6 +175,9 @@ public class Battaglia {
         System.out.printf(Costanti.DANNO_INFLITTO,giocatoreA.getTamaGolem().element().getNome(),potenza, giocatoreB.getTamaGolem().element().getNome() );
     }
 
+    /**
+     * Stampa un attacco con potenza nulla
+     */
     public static void stampaAttaccoNullo(Giocatore giocatoreA, Giocatore giocatoreB)
     {
         System.out.printf(Costanti.ATTACCO, giocatoreA.getTamaGolem().element().getNome(),giocatoreA.getNome(),giocatoreA.getTamaGolem().element().getPietre().element().getNome());
@@ -158,6 +185,12 @@ public class Battaglia {
         System.out.println(Costanti.COLPO_NULLO);
     }
 
+    /**
+     * Controlla la vita dei tamagolem correnti dei due giocatori
+     * @param gCorrente
+     * @param gSuccessivo
+     * @return false se ce un tamagolem con vita negativa o nulla
+     */
     private static boolean controlloVitaTamagolem(Giocatore gCorrente, Giocatore gSuccessivo)
     {
         if(gCorrente.getTamaGolem().element().getVita()<=0 || gSuccessivo.getTamaGolem().element().getVita()<=0)
@@ -167,6 +200,11 @@ public class Battaglia {
         return true;
     }
 
+    /**
+     * La fine dello scontro, si stampano i messaggi e si mostra l equilibrio
+     * @param vivo
+     * @param mappaEquilibrio
+     */
     private static void fineScontro(Giocatore vivo, HashMap<String, Integer> mappaEquilibrio)
     {
         System.out.println(AnsiColors.GREEN);

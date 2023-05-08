@@ -40,8 +40,9 @@ public class Costanti
     public static final String VITA = "VITA %s: %d \n";
     public static final String TAMAGOLEM_RIMASTI = "TAMAGOLEM RIMASTI: %d \n";
     public static final String PIETRE_UGUALI = "\nPIETRE UGUALI: REINSERIRE\n";
-    public static final String SCELTA_PIETRE_G2 = "\n Ora tocca a te %s, scegli le pietre \n";
+    public static final String MESS_SCELTA_PIETRE = "\n Ora tocca a te %s, scegli le pietre \n";
     public static final String PIETRE_DISPONIBILI = "Pietre disponibili";
+    public static final String ERRORE_SLEEP = "Errore nella funzione time.sleep";
 
     //INTERI
     public static final int NUMERO_ELEMENTI = 6;

@@ -7,7 +7,7 @@ public class Main
 
     static boolean test = false;
 
-    public static void main(String[] args) throws InterruptedException
+    public static void main(String[] args)
     {
 
             boolean continuare;
