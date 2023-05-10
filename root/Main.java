@@ -4,12 +4,9 @@ public class Main
 {
     public static Giocatore giocatore1;
     public static Giocatore giocatore2;
-
     static boolean test = false;
-
     public static void main(String[] args)
     {
-
             boolean continuare;
             do
             {
@@ -27,7 +24,6 @@ public class Main
             }
             while(continuare);
             System.out.println(Costanti.FINE);
-
     }
 
     public static void faiTest()

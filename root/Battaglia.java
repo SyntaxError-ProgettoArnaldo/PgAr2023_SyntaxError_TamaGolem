@@ -141,13 +141,16 @@ public class Battaglia {
      */
     private static void assegnaPietre(Giocatore giocatoreA, Giocatore giocatoreB)
     {
-        System.out.println(giocatoreA.getColore()+Costanti.TURNO+giocatoreA.getNome()+ AnsiColors.RESET);
+        System.out.println(giocatoreA.getColore());
+        System.out.printf(Costanti.MESS_SCELTA_PIETRE,giocatoreA.getNome());
+        System.out.println(AnsiColors.RESET);
         InterazioneUtente.scegliPietreSingolo(giocatoreA,giocatoreB);
 
-        System.out.println(giocatoreB.getColore()+Costanti.TURNO+giocatoreB.getNome()+ AnsiColors.RESET);
+        System.out.println(giocatoreB.getColore());
+        System.out.printf(Costanti.MESS_SCELTA_PIETRE,giocatoreB.getNome());
+        System.out.println(AnsiColors.RESET);
         InterazioneUtente.scegliPietreSingolo(giocatoreB,giocatoreA);
     }
-
 
     /**
      * Stampa i dati relativi ai due giocatori, come il nome, la vita e i tamagolem rimasti

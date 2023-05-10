@@ -75,7 +75,6 @@ public class InterazioneUtente
         {
             copiaScortaComune = new HashMap<>(Costanti.SCORTA_COMUNE);
             listaPietre1 = new ArrayList<>();
-            System.out.printf(Costanti.MESS_SCELTA_PIETRE,gCorrente.getNome());
             for (int j = 0; j < Costanti.NUMERO_PIETRE; j++)
             {
                 //CREAZIONE MENU
@@ -123,7 +122,7 @@ public class InterazioneUtente
                 return false;
             }
         }
-        System.out.println(Costanti.PIETRE_UGUALI);
+        System.out.println(AnsiColors.RED +Costanti.PIETRE_UGUALI+ AnsiColors.RESET);
         return true;
     }
 

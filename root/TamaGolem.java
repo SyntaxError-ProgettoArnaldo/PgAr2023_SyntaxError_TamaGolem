@@ -8,24 +8,18 @@ public class TamaGolem
     private final Deque<Elemento> pietre = new ArrayDeque<>();
     private final String nome;
     private int vita = Costanti.VITA_MASSIMA;
-
     public TamaGolem(String nome)
     {
         this.nome = nome;
     }
-
     public Deque<Elemento> getPietre()
     {
         return pietre;
     }
-
-
     public String getNome()
     {
         return nome;
     }
-
-
     public int getVita()
     {
         return vita;

@@ -24,7 +24,6 @@ public class Costanti
     public static final String BENVENUTO = "\nBenvenuto nel mondo dei Tamagolem!\n";
     public static final String MESS_INSERISCI_GIOCATORE = "Inserisci il nickname del tuo giocatore --> ";
     public static final String MESS_INSERISCI_TAMAGOLEM = "Inserisci il nome del TamaGolem numero ";
-    public static final String TURNO = "Ora è il tuo turno: ";
     public static final String INIZIO_SCONTRO = "\nCHE LO SCONTRO ABBIA INIZIO !\n";
     public static final String MESS_FINE_PARTITA = "LA PARTITA E' CONCLUSA!";
     public static final String CONTINUARE = "Inserisci 0 se vuoi uscire, 1 se vuoi riiniziare una nuova partita?";
@@ -40,7 +39,7 @@ public class Costanti
     public static final String VITA = "VITA %s: %d \n";
     public static final String TAMAGOLEM_RIMASTI = "TAMAGOLEM RIMASTI: %d \n";
     public static final String PIETRE_UGUALI = "\nPIETRE UGUALI: REINSERIRE\n";
-    public static final String MESS_SCELTA_PIETRE = "\n Ora tocca a te %s, scegli le pietre \n";
+    public static final String MESS_SCELTA_PIETRE = "\nOra tocca a te %s, scegli le pietre \n";
     public static final String PIETRE_DISPONIBILI = "Pietre disponibili";
     public static final String ERRORE_SLEEP = "Errore nella funzione time.sleep";
 
