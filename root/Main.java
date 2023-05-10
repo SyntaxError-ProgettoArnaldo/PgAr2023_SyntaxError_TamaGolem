@@ -26,6 +26,9 @@ public class Main
             System.out.println(Costanti.FINE);
     }
 
+    /**
+     * Metodo test
+     */
     public static void faiTest()
     {
         giocatore1 = new Giocatore("Giocatore1",Costanti.COLORE_GIOCATORE_A);

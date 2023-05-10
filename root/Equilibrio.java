@@ -39,8 +39,8 @@ public class Equilibrio
                     mat[j][i]=-mat[i][j];
                 }
             }
-            while (somma!=0 && conta<200);
-            if(conta==200)
+            while (somma!=0 && conta<Costanti.CONTATORE_MASSIMO);
+            if(conta==Costanti.CONTATORE_MASSIMO)
             {
                 i=-1;
             }
